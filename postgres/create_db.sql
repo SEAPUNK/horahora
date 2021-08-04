@@ -1,3 +1,4 @@
 CREATE DATABASE scheduler;
-create database userservice;
-create database videoservice;
+CREATE DATABASE userservice;
+CREATE DATABASE videoservice;
+CREATE DATABASE archiver;

@@ -1,9 +1,31 @@
 now:
 
-- webapp (todo.webapp)
+- rename "scheduler" to "archiver"
+  start reimplementing the archiver
+  - [ ] creating an archive request (ONLY ONE-OFF ARCHIVES FOR NOW)
+    - [x] grpc server
+    - [x] grpc proto for requesting an archive
+    - [x] creating entry in the database
+    - [ ] triggering an archive process for that created archive
+  - [ ] processing an archive request
+        that doesnt actually do anything yet
+  - [ ] process first type of archive request
+      youtube SINGLE video
+  - [ ] process video downloads
+  - [ ] process first site of for video download
+      youtube
+  - [ ] add support for youtube playlists
+  - [ ] add support for youtube channels
+  - [ ] add support for niconico SINGLE videos
+  - [ ] add support for niconico tag searches
+  - [ ] add support for bilibili SINGLE videos
+  - [ ] lock down the inputs of the URL
+        because the URL has significant implications, we should lock it down a
+        bit early on and then think about how to make our URLs work nicely
 
 later:
 
+- webapp: archive requests page
 - new queue system
   make it so new archive requests get processed immediately, and rechecked
   depending on the last checked date in the db
@@ -30,3 +52,6 @@ minio and postgres
 running migrations after startup - not worth fixing
   since i'd like the server to be unavailable until after the
   migrations have run
+
+  well, fucking, duh, you can just start the server on a different port in the dockerfile,
+  run the migrations, and then start the server on the regular port!

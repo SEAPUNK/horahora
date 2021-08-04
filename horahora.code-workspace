@@ -17,6 +17,10 @@
 			"path": "scheduler"
 		},
 		{
+			"name": "archiver",
+			"path": "archiver"
+		},
+		{
 			"name": "user_service",
 			"path": "user_service"
 		},
@@ -27,7 +31,9 @@
 		{
 			"name": "horahora",
 			"path": "."
+		},
+		{
+			"path": "../youtube-dl"
 		}
-	],
-	"settings": {}
+	]
 }

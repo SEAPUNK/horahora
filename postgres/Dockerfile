@@ -1,4 +1,4 @@
-# NOTE: because migrations come from outside the `postgres` directory,
+# NOTE: becauser we need files from outside the `postgres` directory,
 #       we build this image from project root, symlinking this file to
 #       Dockerfile.postgres
 
@@ -19,5 +19,6 @@ COPY --chown=postgres:postgres postgres/ /postgres/
 COPY --chown=postgres:postgres user_service/migrations/ /postgres/user_service/migrations/
 COPY --chown=postgres:postgres scheduler/migrations/ /postgres/scheduler/migrations/
 COPY --chown=postgres:postgres video_service/migrations/ /postgres/video_service/migrations/
+COPY --chown=postgres:postgres archiver/migrations/ /postgres/archiver/migrations/
 
 ENTRYPOINT ["/postgres/entrypoint.sh"]

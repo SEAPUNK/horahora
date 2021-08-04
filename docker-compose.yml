@@ -22,6 +22,20 @@ services:
       - VideoServiceGRPCAddress=videoservice:7777
       - SchedulerServiceGRPCAddress=scheduler:7777
       - JaegerAddress=
+  archiver:
+    build:
+      context: .
+      dockerfile: Dockerfile.archiver
+    restart: always
+    ports:
+      - "7778:7778"
+    environment:
+      - pgs_host=postgres
+      - pgs_port=5432
+      - pgs_user=admin
+      - pgs_pass=password
+      - pgs_db=archiver
+      - GRPCPort=7778
   scheduler:
     build: scheduler
     restart: always
@@ -128,6 +142,8 @@ services:
       MINIO_ROOT_PASSWORD: minioadmin
     volumes:
       - miniodata:/data
+  # rabbitmq:
+  #   image: "rabbitmq:3.8"
 
 volumes:
   miniodata:

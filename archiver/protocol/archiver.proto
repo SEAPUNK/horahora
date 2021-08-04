@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option go_package = "example.com/SEAPUNK/horahora/archiver/protocol";
+
+service Archiver {
+  rpc CreateArchiveRequest(CreateArchiveRequestRequest)
+      returns (CreateArchiveRequestResponse) {}
+  rpc ListArchiveRequestsForUser(ListArchiveRequestsForUserRequest)
+      returns (ListArchiveRequestsForUserResponse) {}
+}
+
+message Empty {}
+
+message CreateArchiveRequestResponse { int64 archiveId = 1; }
+
+message CreateArchiveRequestRequest {
+  string query = 1; // URL that we pass to youtube-dl for processing
+  int64 userId = 2; // user who made the request
+}
+
+message ArchiveRequest {
+  int64 id = 1;
+  string query = 2;
+  string error = 3;
+}
+
+message UserArchiveRequest { ArchiveRequest archiveRequest = 1; }
+
+message ListArchiveRequestsForUserRequest { int64 userId = 1; }
+
+message ListArchiveRequestsForUserResponse {
+  repeated UserArchiveRequest entries = 1;
+}
