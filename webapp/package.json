@@ -18,6 +18,7 @@
     "form-data": "^4.0.0",
     "formik": "^2.2.9",
     "http-proxy-middleware": "^2.0.0",
+    "msw": "^0.29.0",
     "patch-package": "^6.4.7",
     "postcss": "^7",
     "prettier": "^2.3.1",

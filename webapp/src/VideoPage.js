@@ -68,6 +68,7 @@ function VideoAdminControls(props) {
 function VideoView(props) {
   let { data } = props;
 
+  // TODO(ivan): responsive video page UI
   return (
     <div className="bg-white border" style={{ width: `${VIDEO_WIDTH}rem` }}>
       <VideoPlayer url={data.MPDLoc} />
