@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.2
 
-# NOTE: because migrations come from outside the `front_api` directory,
+# NOTE: because we need files from outside the `front_api` directory,
 #       we build this image from project root, symlinking this file to
 #       Dockerfile.front_api
 
